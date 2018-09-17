@@ -30,8 +30,6 @@
     _showLabel.adjustsFontSizeToFitWidth = true;
     _showLabel.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:51/255.0 blue:102/255.0 alpha:1];
     [self.view addSubview:_showLabel];
-
-
 }
 
 - (void)onClickPresent{
@@ -39,9 +37,11 @@
     ///保证弹出viewController背景色为透明
     self.definesPresentationContext = YES;
     VC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    ///block弱引用防止循环引用.
+    __weak typeof(self) weakSelf = self;
     VC.backLocationString = ^(NSString *address, NSString *province, NSString *city, NSString *area) {
          // 返回选择数据,地址,省,市,区
-        _showLabel.text = address;
+        weakSelf.showLabel.text = address;
     };
     [self presentViewController:VC animated:true completion:nil];
 }
