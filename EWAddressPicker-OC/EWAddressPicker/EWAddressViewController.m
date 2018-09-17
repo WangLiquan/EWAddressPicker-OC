@@ -8,6 +8,7 @@
 
 #import "EWAddressViewController.h"
 #import "EWAddressPickerPresentAnimated.h"
+
 @interface EWAddressViewController () <UIViewControllerTransitioningDelegate>
 
 @end
@@ -33,8 +34,9 @@
     self.definesPresentationContext = YES;
     //viewcontroller弹出后之前控制器页面不隐藏 .custom代表自定义
     self.modalTransitionStyle = UIModalPresentationCustom;
-
-    _containV = [[EWAddressPickerView alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 550, [UIScreen mainScreen].bounds.size.width, 550) selectColor:[UIColor colorWithRed:79/255.0 green:176/255.0 blue:255.0/255.0 alpha:1]];
+    ///选中颜色,修改其可以修改titleSV中button和下划线的颜色
+    UIColor *selectColor = [UIColor colorWithRed:79/255.0 green:176/255.0 blue:255.0/255.0 alpha:1];
+    _containV = [[EWAddressPickerView alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 550, [UIScreen mainScreen].bounds.size.width, 550) selectColor:selectColor];
     ///弱引用,防止循环引用
     __weak typeof(self) weakSelf = self;
     _containV.backOnClickCancel = ^{

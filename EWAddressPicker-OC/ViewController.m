@@ -36,9 +36,11 @@
 
 - (void)onClickPresent{
     EWAddressViewController *VC = [[EWAddressViewController alloc]init];
+    ///保证弹出viewController背景色为透明
     self.definesPresentationContext = YES;
     VC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     VC.backLocationString = ^(NSString *address, NSString *province, NSString *city, NSString *area) {
+         // 返回选择数据,地址,省,市,区
         _showLabel.text = address;
     };
     [self presentViewController:VC animated:true completion:nil];

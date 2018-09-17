@@ -13,5 +13,5 @@
 @property (nonatomic,strong) UIView *backgroundView;
 @property (nonatomic,strong) EWAddressPickerView *containV;
 @property (nonatomic,copy) backLocation backLocationString;
-@property (nonatomic,strong) UIColor *selectColor;
+
 @end
