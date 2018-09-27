@@ -35,3 +35,6 @@ VC.backLocationString = ^(NSString *address, NSString *province, NSString *city,
 };
 [self presentViewController:VC animated:true completion:nil];
 ```
+
+# 另:
+Swift版本: [EWAddressPicker-Swift](https://github.com/WangLiquan/EWAddressPicker-Swift)
