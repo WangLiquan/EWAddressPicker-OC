@@ -58,6 +58,7 @@ enum EWLocationPickViewTableViewType: NSUInteger {
             self.selectedArea = @"";
             self.cityModel = nil;
             ///修改titleScrollView中button的样式,已保证选择省份后有下划线滚动的动画效果
+        
             for (UIButton *button in _buttonArray) {
                 [button setTitle:@"请选择" forState: UIControlStateNormal];
                 button.selected = NO;
