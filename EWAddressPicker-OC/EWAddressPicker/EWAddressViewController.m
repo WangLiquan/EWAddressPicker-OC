@@ -54,7 +54,11 @@
 ///点击退出事件
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [super touchesBegan:touches withEvent:event];
-    [self dismissViewControllerAnimated:true completion:nil];
+    CGPoint currentPoint = [[touches allObjects][0] locationInView:self.view];
+    CGRect rect = self.containV.frame;
+    if (!CGRectContainsPoint(rect, currentPoint)){
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
 }
 - (void)onClickCancel{
     [self dismissViewControllerAnimated:true completion:nil];
