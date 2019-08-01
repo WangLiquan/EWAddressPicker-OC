@@ -209,12 +209,12 @@ enum EWLocationPickViewTableViewType: NSUInteger {
         [button addTarget:self action:@selector(onClickTitleButton:) forControlEvents: UIControlEventTouchUpInside];
         [_buttonArray addObject:button];
         [titleSV addSubview:button];
-        titleSV.showsVerticalScrollIndicator = NO;
-        [titleSV addSubview:underLine];
-        titleSV.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 44);
-        titleSV.hidden = YES;
-        [self addSubview:titleSV];
     }
+    titleSV.showsVerticalScrollIndicator = NO;
+    [titleSV addSubview:underLine];
+    titleSV.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 44);
+    titleSV.hidden = YES;
+    [self addSubview:titleSV];
 }
 - (void)drawTableView{
     tableViewHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 160)];
