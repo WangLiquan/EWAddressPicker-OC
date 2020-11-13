@@ -42,6 +42,7 @@
     _containV.backOnClickCancel = ^{
         [weakSelf onClickCancel];
     };
+    
     _containV.backLocationString = ^(NSString *address, NSString *province, NSString *city, NSString *area) {
         ///闭包回调
         weakSelf.backLocationString(address, province, city, area);
