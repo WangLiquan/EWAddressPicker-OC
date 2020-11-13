@@ -19,6 +19,7 @@
         for (int i = 0; i < keyArray.count; i++) {
             EWProvinceModel *provinceModel = [[EWProvinceModel alloc] initWithDic:valueArray[i]];
             [_countryDictionary setValue:provinceModel forKey:keyArray[i]];
+            
         }
     }
     return self;
@@ -29,6 +30,8 @@
 - (instancetype)initWithDic:(NSDictionary *)dic{
     self = [super init];
     if (self){
+        
+        
         NSArray *keyArray = dic.allKeys;
         NSArray *valueArray = dic.allValues;
         _provincesDictionary = [NSMutableDictionary dictionary];
