@@ -44,6 +44,7 @@ enum EWLocationPickViewTableViewType: NSUInteger {
 ///type的set方法
 -(void)setType:(enum EWLocationPickViewTableViewType)type{
     _type = type;
+    NSTimer
     switch (type) {
         case provinces:
             ///省份模式下有热门城市headerView,没有titleScrollView

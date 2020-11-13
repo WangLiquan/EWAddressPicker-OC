@@ -30,6 +30,8 @@
     _showLabel.adjustsFontSizeToFitWidth = true;
     _showLabel.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:51/255.0 blue:102/255.0 alpha:1];
     [self.view addSubview:_showLabel];
+    
+    
 }
 
 - (void)onClickPresent{
