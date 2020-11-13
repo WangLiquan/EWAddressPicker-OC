@@ -19,6 +19,7 @@
         for (int i = 0; i < keyArray.count; i++) {
             EWProvinceModel *provinceModel = [[EWProvinceModel alloc] initWithDic:valueArray[i]];
             [_countryDictionary setValue:provinceModel forKey:keyArray[i]];
+            
         }
     }
     return self;
