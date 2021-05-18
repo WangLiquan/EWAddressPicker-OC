@@ -44,7 +44,6 @@ enum EWLocationPickViewTableViewType: NSUInteger {
 ///type的set方法
 -(void)setType:(enum EWLocationPickViewTableViewType)type{
     _type = type;
-    NSTimer
     switch (type) {
         case provinces:
             ///省份模式下有热门城市headerView,没有titleScrollView
@@ -159,6 +158,25 @@ enum EWLocationPickViewTableViewType: NSUInteger {
     }
     return self;
 }
+
+///重写init方法,实现选中状态颜色可修改
+- (instancetype)initWithFrame:(CGRect)frame selectColor:(UIColor *)selectColor selectProvince:(NSString *)province selectCity:(NSString *)city {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.selectColor = selectColor;
+        ///热门城市Array,可修改,但要修改对应方法.例如修改数量就要同是修改buildTitleScrollView方法.修改城市也要修改onClickHotCity方法
+        self.hotCiryArray = @[@"北京",@"上海",@"广州",@"深圳",@"杭州",@"南京",@"苏州",@"天津",@"武汉",@"长沙",@"重庆",@"成都"];
+        ///从文件中获取城市数据
+        [self initLocationData];
+        [self drawMyView];
+        ///页面默认type是省份模式
+        self.type = provinces;
+        [self setHotCityData:province city:city];
+    }
+    return self;
+}
+
+
 - (void)drawMyView{
     self.backgroundColor = UIColor.whiteColor;
     [self buildTitleScrollView];
@@ -310,11 +328,18 @@ enum EWLocationPickViewTableViewType: NSUInteger {
  点击热门城市后根据tag修改数据以及显示状态
  */
 }
-- (void)setHotCityData:(NSString *)province city:(NSString *)city{
-    self.provincesModel = self.locationModel.countryDictionary[province];
-    self.selectedProvince = province;
-    self.cityModel = self.provincesModel.provincesDictionary[city];
-    self.selectedCity = city;
+- (void)setHotCityData:(NSString *)province city:(NSString *)selectCity{
+    
+    if ([self.locationModel.countryDictionary.allKeys containsObject:province]){
+        self.provincesModel = self.locationModel.countryDictionary[province];
+        self.selectedProvince = province;
+        self.type = city;
+        if ([self.provincesModel.provincesDictionary.allKeys containsObject:selectCity]){
+            self.cityModel = self.provincesModel.provincesDictionary[selectCity];
+            self.selectedCity = selectCity;
+            self.type = area;
+        }
+    }
 }
 
 /**

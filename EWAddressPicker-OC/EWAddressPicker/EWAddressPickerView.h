@@ -17,5 +17,8 @@ typedef void(^backCancel)(void);
 /// title及下划线选中颜色
 @property (nonatomic,strong) UIColor *selectColor;
 
--(instancetype)initWithFrame:(CGRect)frame selectColor:(UIColor *)selectColor;
+-(instancetype)initWithFrame:(CGRect)frame selectColor:(UIColor *)selectColor selectProvince:(NSString *)province selectCity:(NSString *)city;
+
+-(instancetype)initWithFrame:(CGRect)frame selectColor:(UIColor *)selectColor ;
+
 @end
